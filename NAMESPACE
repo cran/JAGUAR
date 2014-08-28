@@ -1,0 +1,3 @@
+exportPattern("^[[:alpha:]]+")
+import("Rcpp","lme4","plyr","doMC")
+useDynLib("JAGUAR")

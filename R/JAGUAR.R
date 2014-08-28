@@ -88,7 +88,7 @@
   if(parallel){
     cat("Parallelizing the analysis over all the SNPs \n")
     if(ncores<2) stop("When parallelizing the analysis, at least 2 cores are necessary")
-    registerDoMC(ncores)
+    registerDoParallel(ncores)
     size.genoData = dim(geno)[1];
     part = round(size.genoData/snp.slice);
     output = matrix(1:((part-1)*snp.slice),nrow=part-1,byrow=TRUE);

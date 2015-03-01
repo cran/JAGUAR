@@ -2,22 +2,23 @@
 \alias{calcThreshold}
 \docType{package}
 \title{
-Calculates various threshold values to control for family-wise error rate (FWER).
+Calculates various threshold values to control for the family-wise error rate (FWER).
 }
 \description{
-Function to calculate Bonferroni threshold value and Lin threshold value from the results of Lin's Monte Carlo method. These threshold values control for FWER at the 0.05 level. 
+Function to calculate thresholds values. Only Bonferroni and Danyu Lin's efficient Monte Carlo method are allowed.
 }
 \usage{
-calcThreshold(file.list,nsnps,ngenes,alpha=0.05)
+calcThreshold(nsnps,ngenes,method=c("bonferroni","lin"),path,alpha=0.05)
 }
 \arguments{
-        \item{file.list}{A list of vectors obtained by running ComputeLinMax() on several partitions of the gene expression data set.}
         \item{nsnps}{An integer indicating the total number of SNPs in the study}
         \item{ngenes}{An integer indicating the total number of genes in the study}
+        \item{path}{Path to all the directories containing mcMIN.txt files. This is essential when gene expression data is sliced into multiple fragments.}
+        \item{method}{Choose method to adjust the FWER. Only Bonferroni and Lin's method are provided for now.}
         \item{alpha}{The nominal p-value indicating the false positive rate}
 }
 \value{
-        \item{}{A list object containing the Bonferroni and Lin threshold values}
+        \item{}{Numeric threshold value}
 }
 \author{
 Chaitanya R. Acharya, Andrew S. Allen
@@ -29,7 +30,7 @@ An efficient Monte Carlo approach to assessing the statistical significance in g
 Joint analysis of genotype and tissue-specific variability using a novel score test to map eQTL. Chaitanya R. Acharya, Kouros Owzar and Andrew S. Allen (Manuscript submitted)
 }
 \seealso{
-  \code{\link{ComputeLinMax},\link{jaguar},\link{ProcessJaguarResults},\link{SliceGeneData},\link{jaguarSIM}}
+  \code{\link{jaguar},\link{ProcessJaguarResults},\link{SliceGeneData},\link{jaguar}}
 }
 \examples{
 ## Example
@@ -39,14 +40,12 @@ data(example.data);
 
 # Set the parameter values
 GeneExp = as.matrix(example.data$Gene); 
-Geno = as.matrix(example.data$Geno);
-ngroups=example.data$ngroups;
-
-# Run the function
-out.vec = ComputeLinMax(GeneExp,Geno,ngroups);
+GenoMat = as.matrix(example.data$Geno);
+ngenes = nrow(GeneExp)
+nsnps = nrow(GenoMat)
 
 # Calculate the threshold values
-thresholds = calcThreshold(list(out.vec),15,10);
+calcThreshold(ngenes,nsnps,method="bonferroni",alpha=0.05);
 
 }
 \keyword{Monte Carlo}

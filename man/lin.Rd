@@ -1,14 +1,14 @@
-\name{ComputeLinMax}
-\alias{ComputeLinMax}
+\name{lin}
+\alias{lin}
 \docType{package}
 \title{
-Computes maximum of the score test statistic using an efficient Monte Carlo approach.
+Efficient Monte Carlo approach to adjust for multiplicity
 }
 \description{
-Computes the weighted sum of independent standard normal random variables by multiplying the score test statistic with multiple realizations of normal random samples and taking the max over all the genes. Using an efficient Monte Carlo approach, we approximate the joint distribution of the novel joint score test statistic and then use the Monte Carlo distribution to evaluate the error rates of the statistic. This approach of multiple hypotheses correction in the case of genomic studies has been shown to be computationally inexpensive when compared with standard permutation based approaches.
+Computes the weighted sum of independent standard normal random variables by multiplying the score test statistic with multiple realizations of normal random samples. Using an efficient Monte Carlo approach, we approximate the joint distribution of the novel joint score test statistic and then use the Monte Carlo distribution to evaluate the error rates of the statistic. This approach of multiple hypotheses correction in the case of genomic studies has been shown to be computationally inexpensive when compared with standard permutation based approaches.
 }
 \usage{
-ComputeLinMax(geneexp,geno,ngroups,mc.real=5000,parallel=FALSE,ncores=2,snp.slice=10000)
+lin(geneexp,geno,ngroups,mc.real=5000,parallel=FALSE,ncores=2,snp.slice=10000,write=TRUE)
 }
 \arguments{
         \item{geneexp}{A matrix of gene expression data with gene on rows and patient samples on columns. Missing values not allowed. There has to be equal number of samples in each group.}
@@ -18,9 +18,10 @@ ComputeLinMax(geneexp,geno,ngroups,mc.real=5000,parallel=FALSE,ncores=2,snp.slic
         \item{parallel}{A boolean value indicating whether the analysis should be parallelized}
         \item{ncores}{An integer representing the number of cores used for parallel execution. The number must be at least 2. This option is required only when the analysis is parallelized}
         \item{snp.slice}{An integer representing the partition size of the genotype/SNP data. This number basically represents the number of SNPs analyzed at a time. This option is used only when the parallel execution of the analysis is activated.}
+        \item{write}{A boolean value on whether the results should be written into a text file. By default, the results are stored in a text file 'mcMIN.txt' under each sub-directory }
 }
 \value{
-        \item{}{A vector of length equal to the number of Monte Carlo realizations containing maximum of the weighted sum of independent standard normal random variables over all the genes}
+        \item{}{A vector of length equal to the number of Monte Carlo realizations containing minimum p-values over all the realizations of the statistic}
 }
 \author{
 Chaitanya R. Acharya, Andrew S. Allen
@@ -45,10 +46,12 @@ GeneExp = as.matrix(example.data$Gene);
 Geno = as.matrix(example.data$Geno); 
 k = example.data$ngroups;
 
-#Compute the maximum of the score test statistic over all the genes
-#   and SNPs with no parallel execution. We recommend at least 5000 mc realizations
-lin.stat.out = ComputeLinMax(GeneExp,Geno,k,mc.real=100)
-length(lin.stat.out)
+# Compute the minimum p-value over all the realizations of the score test statistic
+# We recommend at least 5000 MC realizations
+
+# This is just an  example
+lin_mc = lin(GeneExp,Geno,k,mc.real=100,write=FALSE)
+length(lin_mc)
 }
 \keyword{Lin}
 \keyword{Monte Carlo}

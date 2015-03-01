@@ -5,62 +5,30 @@
 
 using namespace Rcpp;
 
-// mc_scoreTest
-NumericVector mc_scoreTest(double Eps, double Tau, double k, NumericMatrix Y, NumericVector snp, NumericMatrix mcMAT);
-RcppExport SEXP JAGUAR_mc_scoreTest(SEXP EpsSEXP, SEXP TauSEXP, SEXP kSEXP, SEXP YSEXP, SEXP snpSEXP, SEXP mcMATSEXP) {
+// RowSums
+NumericVector RowSums(NumericMatrix x);
+RcppExport SEXP JAGUAR_RowSums(SEXP xSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< double >::type Eps(EpsSEXP );
-        Rcpp::traits::input_parameter< double >::type Tau(TauSEXP );
-        Rcpp::traits::input_parameter< double >::type k(kSEXP );
-        Rcpp::traits::input_parameter< NumericMatrix >::type Y(YSEXP );
-        Rcpp::traits::input_parameter< NumericVector >::type snp(snpSEXP );
-        Rcpp::traits::input_parameter< NumericMatrix >::type mcMAT(mcMATSEXP );
-        NumericVector __result = mc_scoreTest(Eps, Tau, k, Y, snp, mcMAT);
+        Rcpp::traits::input_parameter< NumericMatrix >::type x(xSEXP );
+        NumericVector __result = RowSums(x);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
     return __sexp_result;
 END_RCPP
 }
-// getMAX
-NumericVector getMAX(NumericMatrix mcMAT, List Y, NumericMatrix geno, NumericVector Eps, NumericVector Tau, double k);
-RcppExport SEXP JAGUAR_getMAX(SEXP mcMATSEXP, SEXP YSEXP, SEXP genoSEXP, SEXP EpsSEXP, SEXP TauSEXP, SEXP kSEXP) {
+// RowMin
+NumericVector RowMin(NumericMatrix x);
+RcppExport SEXP JAGUAR_RowMin(SEXP xSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< NumericMatrix >::type mcMAT(mcMATSEXP );
-        Rcpp::traits::input_parameter< List >::type Y(YSEXP );
-        Rcpp::traits::input_parameter< NumericMatrix >::type geno(genoSEXP );
-        Rcpp::traits::input_parameter< NumericVector >::type Eps(EpsSEXP );
-        Rcpp::traits::input_parameter< NumericVector >::type Tau(TauSEXP );
-        Rcpp::traits::input_parameter< double >::type k(kSEXP );
-        NumericVector __result = getMAX(mcMAT, Y, geno, Eps, Tau, k);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
-// sim
-NumericVector sim(double Eps, double Tau, double Eps_g, double Tau_g, double k, NumericMatrix Y, NumericMatrix Y_g, NumericVector snp);
-RcppExport SEXP JAGUAR_sim(SEXP EpsSEXP, SEXP TauSEXP, SEXP Eps_gSEXP, SEXP Tau_gSEXP, SEXP kSEXP, SEXP YSEXP, SEXP Y_gSEXP, SEXP snpSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< double >::type Eps(EpsSEXP );
-        Rcpp::traits::input_parameter< double >::type Tau(TauSEXP );
-        Rcpp::traits::input_parameter< double >::type Eps_g(Eps_gSEXP );
-        Rcpp::traits::input_parameter< double >::type Tau_g(Tau_gSEXP );
-        Rcpp::traits::input_parameter< double >::type k(kSEXP );
-        Rcpp::traits::input_parameter< NumericMatrix >::type Y(YSEXP );
-        Rcpp::traits::input_parameter< NumericMatrix >::type Y_g(Y_gSEXP );
-        Rcpp::traits::input_parameter< NumericVector >::type snp(snpSEXP );
-        NumericVector __result = sim(Eps, Tau, Eps_g, Tau_g, k, Y, Y_g, snp);
+        Rcpp::traits::input_parameter< NumericMatrix >::type x(xSEXP );
+        NumericVector __result = RowMin(x);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -118,6 +86,65 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< NumericVector >::type Tau(TauSEXP );
         Rcpp::traits::input_parameter< double >::type k(kSEXP );
         NumericMatrix __result = GENEapply(geno, Y, Eps, Tau, k);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// gamma_test
+double gamma_test(double Eps, double Tau, double k, NumericMatrix Y, NumericVector snp);
+RcppExport SEXP JAGUAR_gamma_test(SEXP EpsSEXP, SEXP TauSEXP, SEXP kSEXP, SEXP YSEXP, SEXP snpSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< double >::type Eps(EpsSEXP );
+        Rcpp::traits::input_parameter< double >::type Tau(TauSEXP );
+        Rcpp::traits::input_parameter< double >::type k(kSEXP );
+        Rcpp::traits::input_parameter< NumericMatrix >::type Y(YSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type snp(snpSEXP );
+        double __result = gamma_test(Eps, Tau, k, Y, snp);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// jag_param
+List jag_param(double Eps, double Tau, double k, NumericMatrix Y, NumericVector snp);
+RcppExport SEXP JAGUAR_jag_param(SEXP EpsSEXP, SEXP TauSEXP, SEXP kSEXP, SEXP YSEXP, SEXP snpSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< double >::type Eps(EpsSEXP );
+        Rcpp::traits::input_parameter< double >::type Tau(TauSEXP );
+        Rcpp::traits::input_parameter< double >::type k(kSEXP );
+        Rcpp::traits::input_parameter< NumericMatrix >::type Y(YSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type snp(snpSEXP );
+        List __result = jag_param(Eps, Tau, k, Y, snp);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// getMinP
+NumericVector getMinP(NumericMatrix mcMAT, List Y, NumericMatrix geno, NumericVector Eps, NumericVector Tau, double k, bool v);
+RcppExport SEXP JAGUAR_getMinP(SEXP mcMATSEXP, SEXP YSEXP, SEXP genoSEXP, SEXP EpsSEXP, SEXP TauSEXP, SEXP kSEXP, SEXP vSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericMatrix >::type mcMAT(mcMATSEXP );
+        Rcpp::traits::input_parameter< List >::type Y(YSEXP );
+        Rcpp::traits::input_parameter< NumericMatrix >::type geno(genoSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type Eps(EpsSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type Tau(TauSEXP );
+        Rcpp::traits::input_parameter< double >::type k(kSEXP );
+        Rcpp::traits::input_parameter< bool >::type v(vSEXP );
+        NumericVector __result = getMinP(mcMAT, Y, geno, Eps, Tau, k, v);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);

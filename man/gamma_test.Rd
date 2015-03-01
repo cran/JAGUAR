@@ -1,20 +1,11 @@
-\name{getMAX}
-\alias{getMAX}
+\name{gamma_test}
+\alias{gamma_test}
 \docType{package}
 \title{
 An internal C++ function
 }
 \description{
-Internal function that computes maximum of the score test statistic using an efficient Monte Carlo approach.
-}
-\details{
-\tabular{ll}{
-Package: \tab JAGUAR\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-08-28\cr
-License: \tab GPL-2\cr
-}
+Internal function that computes p-values from the variance component score test
 }
 \author{
 Chaitanya R. Acharya, Andrew S. Allen

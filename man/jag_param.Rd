@@ -1,11 +1,11 @@
-\name{scoreTest}
-\alias{scoreTest}
+\name{jag_param}
+\alias{jag_param}
 \docType{package}
 \title{
 An internal C++ function
 }
 \description{
-Internal function that computes p-values from the joint score test.
+Internal function that computes jaguar parameters.
 }
 
 \author{

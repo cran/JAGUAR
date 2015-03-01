@@ -7,15 +7,7 @@ An internal C++ function
 \description{
 Internal function that computes the joint score test statistic over all the SNPs for a given gene
 }
-\details{
-\tabular{ll}{
-Package: \tab JAGUAR\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-08-28\cr
-License: \tab GPL-2\cr
-}
-}
+
 \author{
 Chaitanya R. Acharya, Andrew S. Allen
 Maintainer: Chaitanya Acharya<c.acharya@duke.edu>

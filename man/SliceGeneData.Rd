@@ -11,7 +11,7 @@ Function to 1) create sub-directories, 2) slice gene expression data into partit
 SliceGeneData(geneexp,size,path=getwd())
 }
 \seealso{
-  \code{\link{calcThreshold},\link{ComputeLinMax},\link{jaguar},\link{ProcessJaguarResults},\link{jaguarSIM}}
+  \code{\link{calcThreshold},\link{lin},\link{jaguar},\link{ProcessJaguarResults},\link{jaguarSIM}}
 }
 \arguments{
         \item{geneexp}{ A matrix of gene expression data with gene on rows and patient samples on columns. Missing values not allowed. For now, there has to be an equal number of samples in each group.}
@@ -25,11 +25,15 @@ Maintainer: Chaitanya Acharya<c.acharya@duke.edu>
 \references{
 Chaitanya R. Acharya, Kouros Owzar and Andrew S. Allen; Joint analysis of genotype and tissue-specific variability using a novel score test to map eQTL (Manuscript submitted)
 }
-\keyword{ package }
+\keyword{ partition }
+\keyword{ slice }
+\keyword{ gene expression }
+\keyword{ sub-directory }
+
 \examples{
 # Set the size of the partition
 # size = 100; ## Indicates the number of genes in each partitioned gene exp data
 #
 # Assuming that the path is the default getwd()
-# SliceGeneData(geneexp,100)
+# SliceGeneData(geneexp,size)
 }

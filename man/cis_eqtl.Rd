@@ -1,11 +1,11 @@
-\name{GENEapply}
-\alias{GENEapply}
+\name{cis_eqtl}
+\alias{cis_eqtl}
 \docType{package}
 \title{
 An internal C++ function
 }
 \description{
-Internal function that computes the joint score test statistic over all the SNPs for all the genes
+Internal function to perform cis-eQTL analysis
 }
 \author{
 Chaitanya R. Acharya, Andrew S. Allen

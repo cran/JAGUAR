@@ -1,3 +1,6 @@
 exportPattern("^[[:alpha:]]+")
-import("Rcpp","lme4","plyr","doParallel")
+import("Rcpp","lme4","plyr","reshape2")
+importFrom("graphics","abline","lines","mtext","par","plot","points","rect")
+importFrom("stats","model.matrix","quantile","rbinom","rnorm")
+importFrom("utils","read.delim","write.table")
 useDynLib("JAGUAR")

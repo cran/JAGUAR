@@ -1,11 +1,11 @@
-\name{GENEapply}
-\alias{GENEapply}
+\name{vcSIM}
+\alias{vcSIM}
 \docType{package}
 \title{
 An internal C++ function
 }
 \description{
-Internal function that computes the joint score test statistic over all the SNPs for all the genes
+Internal function that computes p-values from the variance component score test
 }
 \author{
 Chaitanya R. Acharya, Andrew S. Allen

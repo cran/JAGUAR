@@ -20,15 +20,13 @@ jaguar_plotqtl(geneID,snpID,gene.chr,gene.pos,snp.chr,snp.pos,scores,chroms=1:22
   \item{chroms}{A vector indicating the number of chromosomes to me mapped. Usually, it is 1 to 22 (excluding X and Y chromosomes)}
 }
 \author{
-Chaitanya R. Acharya, Andrew S. Allen
+Chaitanya R. Acharya
 Maintainer: Chaitanya Acharya<c.acharya@duke.edu>
 }
 \references{
 eQTL analysis by Linear Model \url{http://www.bios.unc.edu/~weisun/software/eMap.pdf}
 
-Chaitanya R. Acharya, Kouros Owzar, Janice M. McCarthy and Andrew S. Allen; Exploiting expression patterns across multiple tissues to map expression quantitative trait loci (Manuscript submitted)
-
-Chaitanya R. Acharya and Andrew S. Allen; JAGUAR: An R-package to Implement Joint Analysis of Genotype and Group-Specific Variability Using a Novel Score Test to Map eQTL (Manuscript submitted)
+Chaitanya R. Acharya, Kouros Owzar, Janice M. McCarthy and Andrew S. Allen; Exploiting expression patterns across multiple tissues to map expression quantitative trait loci. BMC Bioinformatics (2016) 17:257 DOI 10.1186/s12859-016-1123-5
 }
 \seealso{
   \code{\link{jaguar_gwa},\link{jaguar_process},\link{jaguar_slice},\link{jaguar_cis},\link{jaguar_sim}}

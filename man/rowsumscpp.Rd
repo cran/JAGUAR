@@ -10,6 +10,6 @@ Internal function to compute row sums of a matrix.
 }
 
 \author{
-Chaitanya R. Acharya, Andrew S. Allen
+Chaitanya R. Acharya
 Maintainer: Chaitanya Acharya<c.acharya@duke.edu>
 }

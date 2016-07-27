@@ -8,6 +8,6 @@ An internal C++ function
 Internal function that computes the joint score test statistic over all the SNPs for all the genes
 }
 \author{
-Chaitanya R. Acharya, Andrew S. Allen
+Chaitanya R. Acharya
 Maintainer: Chaitanya Acharya<c.acharya@duke.edu>
 }

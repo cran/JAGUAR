@@ -8,6 +8,6 @@ An internal C++ function
 Internal function to perform cis-eQTL analysis
 }
 \author{
-Chaitanya R. Acharya, Andrew S. Allen
+Chaitanya R. Acharya
 Maintainer: Chaitanya Acharya<c.acharya@duke.edu>
 }

@@ -8,6 +8,6 @@ An internal C++ function
 Internal function that computes p-values from the variance component score test
 }
 \author{
-Chaitanya R. Acharya, Andrew S. Allen
+Chaitanya R. Acharya
 Maintainer: Chaitanya Acharya<c.acharya@duke.edu>
 }

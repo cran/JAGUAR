@@ -170,7 +170,8 @@
 					cis_snps = snpC.split[[snp_chr]][keep,4];
 					geno_mat = as.matrix(genomat[rownames(genomat) %in% cis_snps,]);
 					})
-	geno_dim = ldply(newGENO,dim)[,1];
+	geno_dim = ldply(newGENO,dim,.id=NULL)[,1];
+
 	out = which(geno_dim==0);
 	if(length(out)>0){
 		Y=Y[-out]; Eps=Eps[-out]; Tau=Tau[-out]; newGENO=newGENO[-out]; geno_dim=geno_dim[-out];
@@ -376,7 +377,7 @@
 	snp.chr[snp.chr==99]  = max.num+1
 	snp.chr[snp.chr==100] = max.num+2
 	chreMax = tapply(gene.pos, gene.chr, max, na.rm=TRUE, simplify = FALSE)
-	chrmMax = tapply(gene.pos, gene.chr, max, na.rm=TRUE, simplify = FALSE)
+	chrmMax = tapply(snp.pos, snp.chr, max, na.rm=TRUE, simplify = FALSE)
 	chrMax = numeric(length(chrs))
 	for(i in 1:length(chrs)){
 		ch = as.character(i)

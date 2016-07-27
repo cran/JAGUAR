@@ -116,10 +116,10 @@ arma::mat GENEapply(const arma::mat& geno, List Y, const arma::vec Eps, const ar
 	arma::mat GENEout_pval(ngenes,nsnps);
 	arma::vec SNPout_pval(nsnps);
 	arma::rowvec snp(R.n_rows);
-  Progress p(ngenes, display_progress);
+	Progress p(ngenes, display_progress);
 	for(int i =0; i<ngenes; i++){
 		Rcpp::checkUserInterrupt();
-    p.increment();
+		p.increment();
 		arma::mat Ymat = Y(i);
 		double est_eps = Eps(i);
 		double est_tau = Tau(i);

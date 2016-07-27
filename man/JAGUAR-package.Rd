@@ -21,17 +21,15 @@ The aim of the package is allow users to apply a novel score test method develop
 \tabular{ll}{
 Package: \tab JAGUAR\cr
 Type: \tab Package\cr
-Version: \tab 3.0.0\cr
-Date: \tab 2015-09-15\cr
+Version: \tab 3.0.1\cr
+Date: \tab 2016-07-11\cr
 License: \tab GPL-2\cr
 }
 }
 \author{
-Chaitanya R. Acharya, Andrew S. Allen
+Chaitanya R. Acharya
 Maintainer: Chaitanya Acharya<c.acharya@duke.edu>
 }
 \references{
-Chaitanya R. Acharya, Kouros Owzar, Janice M. McCarthy and Andrew S. Allen; Exploiting expression patterns across multiple tissues to map expression quantitative trait loci (Manuscript submitted)
-
-Chaitanya R. Acharya and Andrew S. Allen; JAGUAR: An R-package to Implement Joint Analysis of Genotype and Group-Specific Variability Using a Novel Score Test to Map eQTL (Manuscript submitted)
+Chaitanya R. Acharya, Kouros Owzar, Janice M. McCarthy and Andrew S. Allen; Exploiting expression patterns across multiple tissues to map expression quantitative trait loci. BMC Bioinformatics (2016) 17:257 DOI 10.1186/s12859-016-1123-5
 }
